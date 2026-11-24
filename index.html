@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Student Handbook 2022/2023 – Flipbook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ===== Top bar ===== -->
+    <header class="topbar">
+      <button class="icon-btn" id="btnPanel" type="button" aria-label="Toggle page navigator" title="Pages">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div class="title">
+        Student Handbook 2022/2023
+        <small>Faculty of Humanities &amp; Social Sciences · University of Ruhuna</small>
+      </div>
+
+      <div class="spacer"></div>
+
+      <button class="icon-btn" id="btnView" type="button" aria-label="Switch single / double page view" title="Single / double page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg>
+      </button>
+      <button class="icon-btn" id="btnZoomOut" type="button" aria-label="Zoom out" title="Zoom out">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M8 11h6"/></svg>
+      </button>
+      <span class="zoom-label" id="zoomLabel">100%</span>
+      <button class="icon-btn" id="btnZoomIn" type="button" aria-label="Zoom in" title="Zoom in">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg>
+      </button>
+      <button class="icon-btn" id="btnFull" type="button" aria-label="Full screen" title="Full screen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
+    </header>
+
+    <!-- ===== Left page navigator (docked on desktop, drawer on phones) ===== -->
+    <aside class="panel" id="panel" aria-label="Page navigator">
+      <div class="panel-head">
+        <div class="tabs" role="tablist">
+          <button class="tab active" id="tabToc" type="button" role="tab" aria-selected="true">Contents</button>
+          <button class="tab" id="tabPages" type="button" role="tab" aria-selected="false">Pages</button>
+        </div>
+      </div>
+      <nav class="toc" id="toc" aria-label="Table of contents"></nav>
+      <div class="thumbs" id="thumbs" hidden></div>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <!-- ===== The book ===== -->
+    <div class="stage-wrap">
+    <button class="side-arrow left" id="btnPrevSide" type="button" aria-label="Previous page">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="side-arrow right" id="btnNextSide" type="button" aria-label="Next page">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <main class="stage" id="stage">
+      <div class="sizer" id="sizer">
+        <div class="book" id="book">
+          <div class="block block-left" id="blockLeft"></div>
+          <div class="block block-right" id="blockRight"></div>
+          <!-- page leaves are created by script.js -->
+        </div>
+      </div>
+    </main>
+    </div>
+
+    <!-- ===== Bottom controls ===== -->
+    <footer class="controls">
+      <div class="pill">
+        <button class="icon-btn" id="btnPrev" type="button" aria-label="Previous page" title="Previous (←)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <input class="slider" id="slider" type="range" min="1" max="160" value="1" aria-label="Go to page">
+
+        <label class="pager">
+          <input id="pageInput" type="text" inputmode="numeric" autocomplete="off" aria-label="Page number" value="1">
+          <span>/ <span id="total">160</span></span>
+        </label>
+
+        <button class="icon-btn" id="btnNext" type="button" aria-label="Next page" title="Next (→)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </footer>
+
+
+
+  </div>
+
+  <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;color:#fff;background:#050b1b">Please enable JavaScript to view the flipbook.</p></noscript>
+  <script src="script.js"></script>
+</body>
+</html>
